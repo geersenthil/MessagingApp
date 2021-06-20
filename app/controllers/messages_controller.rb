@@ -13,6 +13,8 @@ class MessagesController < ApplicationController
   # GET /messages/new
   def new
     @message = Message.new
+    @recipient = User.find(message_params[:recipient_id])
+    @message.user_id = message_params[:recipient_id]
   end
 
   # GET /messages/1/edit
@@ -21,7 +23,10 @@ class MessagesController < ApplicationController
 
   # POST /messages
   def create
-    @message = Message.new(message_params)
+    @recipient = User.find(message_params[:recipient_id])
+    @message = @recipient.messages.build(message_params.except(:recipient_id))
+    @message.sender_id = current_user.id
+
 
     if @message.save
       redirect_to @message, notice: 'Message was successfully created.'
@@ -53,6 +58,6 @@ class MessagesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def message_params
-      params.require(:message).permit(:chattext)
+      params.require(:message).permit(:chattext, :recipient_id)
     end
 end

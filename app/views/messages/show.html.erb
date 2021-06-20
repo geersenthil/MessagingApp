@@ -1,6 +1,15 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Time:</strong>
+  <%= @message.created_at %>
+
+  <strong>Sender:</strong>
+  <%= @message.user_id %>
+
+  <strong>Recepient:</strong>
+  <%= @message.sender_id %>
+
   <strong>Chattext:</strong>
   <%= @message.chattext %>
 </p>

@@ -10,9 +10,16 @@
       </ul>
     </div>
   <% end %>
+  <div class="field">
+    <h2>Message for <%= User.find(@message.user_id).name %></h2>
+  </div>
+
+  <div>
+    <%= form.hidden_field :recipient_id, :value => @message.user_id %>
+  </div>
 
   <div class="field">
-    <%= form.label :chattext %>
+    <%= form.label :Message %>
     <%= form.text_field :chattext %>
   </div>
 
