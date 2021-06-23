@@ -13,10 +13,10 @@
   <tbody>
   <% @users.each do |user| %>
     <tr>
-      <td><%= user.name %></td>
+      <td><%= user.firstname %></td>
       <td><%= user.email %></td>
       <td><%= link_to 'Show', user %></td>
-      <td><%= link_to "Give #{user.name} Feedback", new_message_path(:message =>{:recipient_id => user.id})%></td>
+      <td><%= link_to "Give #{user.firstname} Feedback", new_message_path(:message =>{:recipient_id => user.id})%></td>
       </td>
     </tr>
   <% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_14_173125) do
+ActiveRecord::Schema.define(version: 2021_06_21_005230) do
 
   create_table "messages", force: :cascade do |t|
     t.string "chattext"
@@ -21,8 +21,16 @@ ActiveRecord::Schema.define(version: 2021_06_14_173125) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
+  create_table "rooms", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_rooms_on_name", unique: true
+  end
+
   create_table "users", force: :cascade do |t|
-    t.string "name", limit: 70, null: false
+    t.string "firstname", limit: 70, null: false
+    t.string "lastname", limit: 70, null: false
     t.string "email", limit: 255, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
