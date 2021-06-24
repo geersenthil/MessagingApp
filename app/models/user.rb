@@ -1,8 +1,9 @@
 class User < ApplicationRecord
   has_many :messages
-    validates_presence_of :name
-    validates_length_of :name, maximum: 70
-    
+    validates_presence_of :firstname
+    validates_length_of :firstname, maximum: 70
+  validates_presence_of :lastname
+  validates_length_of :lastname, maximum: 70
     before_save { self.email = email.downcase }    
     validates_presence_of :email
     validates_length_of :email, maximum: 255    

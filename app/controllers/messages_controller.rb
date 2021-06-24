@@ -1,4 +1,18 @@
 class MessagesController < ApplicationController
+  before_action :load_entities
+
+  def create
+    @message = Message.create user: current_user,
+                                       room: @room,
+                                       message: params.dig(:message, :chattext)
+  end
+
+  protected
+
+  def load_entities
+    @room = Room.find params.dig(:message, :room_id)
+  end
+=begin
   before_action :set_message, only: [:show, :edit, :update, :destroy]
 
   # GET /messages
@@ -60,4 +74,5 @@ class MessagesController < ApplicationController
     def message_params
       params.require(:message).permit(:chattext, :recipient_id)
     end
+=end
 end
