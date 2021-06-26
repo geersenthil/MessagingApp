@@ -1,16 +1,19 @@
 class MessagesController < ApplicationController
-  before_action :load_entities
+  before_action :set_message, only: [:show, :edit, :update, :destroy]
 
   def create
+    @room = Room.find_by(message_params[:room_id])
     @message = Message.create user: current_user,
                                        room: @room,
-                                       message: params.dig(:message, :chattext)
+                              chattext: message_params[:chattext]
   end
 
   protected
-
-  def load_entities
-    @room = Room.find params.dig(:message, :room_id)
+  def set_message
+    @message = Message.find(params[:id])
+  end
+  def message_params
+    params.require(:message).permit(:chattext, :room_id)
   end
 =begin
   before_action :set_message, only: [:show, :edit, :update, :destroy]
