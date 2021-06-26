@@ -1,8 +1,10 @@
+
+
 <h1>Welcome to Chatify!</h1>
 
 <% if logged_in? %>
-  <p><%= link_to 'Friends', users_path %></p>
-  <p><%= link_to 'Logout', logout_path %></p>
+<!--  <p><%#= link_to 'Friends', users_path %></p>
+  <p><%#= link_to 'Logout', logout_path %></p>-->
 <% else %>
   <p><%= link_to 'Login', login_path %></p>
   <p><%= link_to 'Signup for an account', signup_path %></p>
