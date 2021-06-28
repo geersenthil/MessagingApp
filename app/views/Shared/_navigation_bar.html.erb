@@ -10,8 +10,8 @@
       }
 
       li {
-          float: left;
-          border-right:1px solid #bbb;
+          float: left;/*
+          border-right:1px solid #bbb;*/
       }
 
       li:last-child {
@@ -33,20 +33,27 @@
       .active {
           background-color: #04AA6D;
       }
-  </style>
-</head>
 
+      .avatar {
+          width:40px;
+      }
+      body {
+          background-color: lightblue;
+      }
+  </style>
+
+</head>
+<% if logged_in? %>
 <ul>
-  <li><a class="navbar-brand" href="/">Chatify</a></li>
-  <li><a href="rooms">Rooms</a></li>
-  <li><a href="users">Users</a></li>
-  <li><a href="logout">Logout</a></li>
-  <% if logged_in? %>
-    <a style="img-size:24px;"><img class="avatar" src="<%= gravatar_url(current_user) %>"> </a>
-      <a style="color: white; ">             <%= current_user.email %>
+  <li><%= link_to "Chatify" , static_pages_home_path %></li>
+  <li><%= link_to "Rooms" , rooms_path %></li>
+  <li><%= link_to "Members" , users_path %></li>
+  <li><%= link_to "Sign Out" , logout_path %></li>
+
+    <img class="avatar" src="<%= gravatar_url(current_user) %>">
+      <a style="color: white; "> <%= current_user.email %>
       </a>
-  <% end %>
+
 </ul>
 
-
-</nav>
+<% end %>

@@ -1,3 +1,29 @@
+<!DOCTYPE html>
+<html>
+<style>
+    .all-browsers {
+        margin: 0;
+        padding: 5px;
+        background-color: lightgray;
+    }
+
+    .all-browsers > h1, .browser {
+        height: 450px;
+        margin: 0px;
+        padding: 10px;
+    }
+
+    .browser {
+        background: white;
+    }
+
+    .browser > h2, p {
+        margin: 4px;
+        font-size: 90%;
+    }
+
+</style>
+
 <%= form_with(model: user) do |form| %>
   <% if user.errors.any? %>
     <div id="error_explanation">
@@ -38,3 +64,5 @@
     <%= form.submit %>
   </div>
 <% end %>
+
+</html>
