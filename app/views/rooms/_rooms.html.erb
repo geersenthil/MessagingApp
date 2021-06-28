@@ -1,17 +1,47 @@
-<div class="mb-3">
-  <%= link_to new_room_path, class: 'btn btn-primary' do %>
-    Create a room
-  <% end %>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
 
+  <style>
+      body {
+          margin: 0;
+      }
+      ul.b {
+          list-style-type: square;
+      }
+
+      .column {
+          float: left;
+          padding: 0px;
+      }
+      .column.side {
+          width: 10%;
+      }
+
+
+
+  </style>
+</head>
+
+
+
+<body >
+
+<div class ="column side">
+  <%= link_to "Create a new room", new_room_path %>
+  <ul>
 <% if @rooms.present? %>
-  <nav class="nav flex-column">
+      <li style="color: #04AA6D";><%= "Available Rooms:" %></li>
     <% @rooms.each do |room| %>
-      <%= link_to room.name, room_path(room), class: 'nav-link room-nav-link' %>
+
+     <li> <%= link_to room.name, room_path(room) %></li>
+
     <% end %>
-  </nav>
+    </ul>
+  </div>
 <% else %>
-  <div class="text-muted">
-    The are no rooms
+  <div style="color: white; text-align: center"; >
+     No rooms created yet!
   </div>
 <% end %>
+</body>

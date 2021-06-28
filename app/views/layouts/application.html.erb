@@ -1,5 +1,18 @@
 
 <!DOCTYPE html>
+<style>
+    .foot {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: teal;
+        color: white;
+        text-align: center;
+    }
+
+
+</style>
 <html>
   <head>
     <title>ChatApp</title>
@@ -12,21 +25,21 @@
 
   </head>
 
-  <body>
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <%= render partial: 'Shared/navigation_bar' %>
-        <div class="my-3">
-        </div>
-      </div>
-    </div>
-  </div>
+  <body >
+
+
+    <%= render partial: 'Shared/navigation_bar' %>
+
    <% flash.each do |key, value| %>
      <%= content_tag :div, value, id: "#{key}" %>
-   <% end %>      
-     
+   <% end %>
+
    <%= yield %>
+
+   <div class = "foot">
+     <h5>This is a ruby on rails chat app</h5>
+     <p>Created by Geerthika Senthil</p>
+   </div>
 
   </body>
 </html>

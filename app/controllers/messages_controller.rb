@@ -6,6 +6,7 @@ class MessagesController < ApplicationController
     @message = Message.create user: current_user,
                                        room: @room,
                               chattext: message_params[:chattext]
+    redirect_to room_path(message_params[:room_id]), notice: 'Message was successfully sent!'
   end
 
   protected

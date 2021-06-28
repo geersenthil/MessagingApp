@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
       body {
           margin: 0 auto;
@@ -51,29 +50,51 @@
           float: left;
           color: #999;
       }
+
+
+
+      .browser {
+          background: white;
+      }
+
+      .browser > h2, p {
+          margin: 4px;
+          font-size: 90%;
+      }
+
+      footer {
+          text-align: center;
+          padding: 3px;
+          background-color: teal;
+          color: white;
+      }
+      div.ex3 {
+          background-color:white;
+          width: 790px;
+          height: 310px;
+          overflow: auto;
+      }
   </style>
 </head>
+<body>
+<div>
+
 <h1>
   <%= @room.name %>
 </h1>
 
+
 <div class="row">
-  <div class="col-12 col-md-3">
-    <%= render partial: 'rooms' %>
-  </div>
-  <div class="col">
-    <div class="chat">
+<div class="ex3">
       <% @messages.each do |room_message| %>
         <% if room_message.user == current_user %>
             <div class="container">
-              <img src="/w3images/bandmember.jpg" alt="Avatar" style="width:100%;">
               <%= room_message.user.fullname %>
               <p><%= room_message.chattext %></p>
               <span class="time-right"><%= room_message.created_at %></span>
             </div>
        <%else %>
           <div class="container darker">
-          <img src="/w3images/bandmember.jpg" alt="Avatar" style="width:100%;">
           <%= room_message.user.fullname %>
           <p><%= room_message.chattext %></p>
           <span class="time-left"><%= room_message.created_at %></span>
@@ -101,3 +122,5 @@
   <% end %>
   </div>
 </div>
+  </body>
+</html>
