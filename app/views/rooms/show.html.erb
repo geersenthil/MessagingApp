@@ -89,8 +89,8 @@
       <% @messages.each do |room_message| %>
         <% if room_message.user == current_user %>
             <div class="container">
-              <%= room_message.user.fullname %>
-              <p><%= room_message.chattext %></p>
+             <p style="text-align: right"> <%= room_message.user.fullname %></p>
+              <p style="text-align: right"><%= room_message.chattext %></p>
               <span class="time-right"><%= room_message.created_at %></span>
             </div>
        <%else %>

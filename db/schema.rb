@@ -17,7 +17,9 @@ ActiveRecord::Schema.define(version: 2021_06_21_005230) do
     t.integer "sender_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "room_id"
     t.integer "user_id"
+    t.index ["room_id"], name: "index_messages_on_room_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
@@ -38,5 +40,6 @@ ActiveRecord::Schema.define(version: 2021_06_21_005230) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "messages", "rooms"
   add_foreign_key "messages", "users"
 end
