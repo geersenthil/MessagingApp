@@ -10,4 +10,4 @@
 </p>
 
 <%= link_to 'Home', root_path %> |
-<%= link_to 'Message', messages_path %>
+<%= link_to 'Message', new_private_message_path(:private_message =>{:recipient_id => @user.id}) %>

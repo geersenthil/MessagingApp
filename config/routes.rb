@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  resources :private_messages
   resources :rooms
   resources :messages
   get 'sessions/new'

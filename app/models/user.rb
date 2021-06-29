@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :messages
+  has_many :private_messages
     validates_presence_of :firstname
     validates_length_of :firstname, maximum: 70
   validates_presence_of :lastname

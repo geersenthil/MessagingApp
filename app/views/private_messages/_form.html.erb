@@ -1,0 +1,27 @@
+
+<%= form_with(model: private_message) do |form| %>
+  <% if private_message.errors.any? %>
+    <div style="color: red" id="error_explanation">
+      <h2><%= pluralize(private_message.errors.count, "error") %> prohibited this message from being saved:</h2>
+
+      <ul>
+        <% private_message.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.hidden_field :recipient_id, :value => @private_message.user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Message %>
+    <%= form.text_field :directmessage %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

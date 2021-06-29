@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_21_005230) do
+ActiveRecord::Schema.define(version: 2021_06_28_171947) do
 
   create_table "messages", force: :cascade do |t|
     t.string "chattext"
@@ -21,6 +21,15 @@ ActiveRecord::Schema.define(version: 2021_06_21_005230) do
     t.integer "user_id"
     t.index ["room_id"], name: "index_messages_on_room_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "private_messages", force: :cascade do |t|
+    t.string "directmessage"
+    t.integer "sender_id"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_private_messages_on_user_id"
   end
 
   create_table "rooms", force: :cascade do |t|
@@ -42,4 +51,5 @@ ActiveRecord::Schema.define(version: 2021_06_21_005230) do
 
   add_foreign_key "messages", "rooms"
   add_foreign_key "messages", "users"
+  add_foreign_key "private_messages", "users"
 end

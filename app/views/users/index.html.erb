@@ -1,15 +1,17 @@
 
-<h1>Members</h1>
+<h1>Direct Message</h1>
+<h3>If you would like to chat with someone privately you can use direct messages!</h3>
 <body>
 <table>
   <tr>
-    <th>Name</th>
+    <th>Member List:</th>
+
   </tr>
   <tbody>
   <% @users.each do |user| %>
     <tr>
       <td><%= link_to user.fullname, user %></td>
-      <td><%= link_to "Send a Message", new_message_path(:message =>{:recipient_id => user.id})%></td>
+      <td><%= link_to "Send a Message", new_private_message_path(:private_message =>{:recipient_id => user.id})%></td>
       </td>
     </tr>
   <% end %>
