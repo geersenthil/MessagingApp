@@ -7,15 +7,17 @@
   </style>
 </head>
 <body>
-      <h1>
-        Let's Chat!
-      </h1>
-<div>
-  <%= render partial: 'rooms' %>
-</div>
-      <h3>
-        Let's talk!
-        You can create or join a room from the sidebar.
-      </h3>
+
+
+
+  <h1 style="text-align: center; font-family: 'Georgia'"> Let's Chat!</h1>
+
+  <h2 style="text-align: center; font-family: 'Century Gothic'">
+  You can create or join a room from the sidebar.
+</h2>
+  <div style="padding-left: 20px">
+    <%= render partial: 'rooms' %>
+  </div>
+      <div align="right"><%= image_tag "network.svg" %></div>
 </body>
 </html>

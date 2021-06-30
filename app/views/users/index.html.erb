@@ -1,13 +1,13 @@
 
-<h1>Direct Message</h1>
-<h3>If you would like to chat with someone privately you can use direct messages!</h3>
+<h1 style="text-align: center; font-family: 'Georgia'">Direct Message</h1>
+<h3 style="text-align: center; font-family: 'Century Gothic'">If you would like to chat with someone privately you can use direct messages!</h3>
 <body>
-<table>
+<table align="center">
   <tr>
     <th>Member List:</th>
 
   </tr>
-  <tbody>
+  <tbody >
   <% @users.each do |user| %>
     <tr>
       <td><%= link_to user.fullname, user %></td>

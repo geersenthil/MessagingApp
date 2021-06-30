@@ -8,14 +8,17 @@
       }
       ul.b {
           list-style-type: square;
+          background-color: teal;
       }
 
       .column {
           float: left;
           padding: 0px;
+          text-align: center;
       }
       .column.side {
           width: 10%;
+
       }
 
 
@@ -27,11 +30,12 @@
 
 <body >
 
-<div class ="column side">
-  <%= link_to "Create a new room", new_room_path %>
-  <ul>
+<div class ="column side",>
+  <b style="font-size: large;font-family: 'Century Gothic'"><%= link_to "CREATE A NEW ROOM", new_room_path %></b>
+<p> </p>
+  <ul class="b">
 <% if @rooms.present? %>
-      <li style="color: #04AA6D";><%= "Available Rooms:" %></li>
+      <li style="color: white";><%= "Available Rooms:" %></li>
     <% @rooms.each do |room| %>
 
      <li> <%= link_to room.name, room_path(room) %></li>
